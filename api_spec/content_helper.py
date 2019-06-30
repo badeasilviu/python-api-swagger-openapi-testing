@@ -2,7 +2,7 @@ class ContentHelper:
     def __value_or_default__(self, key, content, default_value=""):
         try:
             return content[key]
-        except KeyError:
+        except (KeyError, TypeError) as e:
             return default_value
 
     def __keys_or_default__(self, key, content, default_value=""):
